@@ -516,7 +516,7 @@ elif choice == 'Phân cụm khách hàng':
     # Chuyển các cột kiểu object về string, nếu cần.
     for col in df_RFM_rule.select_dtypes(include='object'):
         df_RFM_rule[col] = df_RFM_rule[col].astype(str)
-   
+    csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
     #########################################################################################################
     st.download_button(
         label="Download data as CSV",
