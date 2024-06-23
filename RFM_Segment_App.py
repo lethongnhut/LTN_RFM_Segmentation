@@ -513,34 +513,7 @@ elif choice == 'Phân cụm khách hàng':
     st.write('Download file csv đã phân nhóm khách hàng theo RFM')
     # csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
 ###############################################################################
-    # Kiểm tra kiểu dữ liệu
-    print(df_RFM_rule.info())
 
-    # Chuyển đổi kiểu dữ liệu (ví dụ)
-    for col in df_RFM_rule.columns:
-        if df_RFM_rule[col].dtype not in ['int64', 'float64', 'object']:
-            df_RFM_rule[col] = df_RFM_rule[col].astype(str)
-
-    # Xử lý giá trị NaN
-    df_RFM_rule = df_RFM_rule.fillna('')
-    # Kiểm tra kiểu dữ liệu của các cột
-    print(df_RFM_rule.info())
-
-    # Chuyển đổi kiểu dữ liệu (ví dụ)
-    for col in df_RFM_rule.columns:
-        if df_RFM_rule[col].dtype not in ['int64', 'float64', 'object']:
-            df_RFM_rule[col] = df_RFM_rule[col].astype(str)
-
-    # Xử lý giá trị NaN (ví dụ)
-    df_RFM_rule = df_RFM_rule.fillna(0)
-
-    # Xuất ra CSV
-    #csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
-    from io import BytesIO
-
-    output = BytesIO()
-    df_RFM_rule.to_csv(output, index=False, encoding='utf-8')
-    csv = output.getvalue()
 ############################################################################
     st.download_button(
         label="Download data as CSV",
