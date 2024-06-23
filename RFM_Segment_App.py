@@ -513,9 +513,13 @@ elif choice == 'Phân cụm khách hàng':
     st.write('Download file csv đã phân nhóm khách hàng theo RFM')
     #csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
     ##################################################################################################3
-    # Chuyển các cột kiểu object về string, nếu cần.
-    for col in df_RFM_rule.select_dtypes(include='object'):
-        df_RFM_rule[col] = df_RFM_rule[col].astype(str)
+    # Kiểm tra và xử lý kiểu dữ liệu
+    for col in df_RFM_rule.columns:
+        if df_RFM_rule[col].dtype not in ['int64', 'float64', 'object', 'datetime64[ns]']:
+            df_RFM_rule[col] = df_RFM_rule[col].astype(str)  # Chuyển đổi sang chuỗi nếu không phải các kiểu cơ bản
+    # Xử lý giá trị NaN
+    df_RFM_rule = df_RFM_rule.fillna('')  # Hoặc điền giá trị 0 nếu phù hợp
+
     csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
     #########################################################################################################
     st.download_button(
