@@ -525,7 +525,7 @@ elif choice == 'Phân cụm khách hàng':
     df_RFM_rule = df_RFM_rule.fillna(0)
 
     # Xuất ra CSV
-    csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
+   csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
 ############################################################################
     st.download_button(
         label="Download data as CSV",
