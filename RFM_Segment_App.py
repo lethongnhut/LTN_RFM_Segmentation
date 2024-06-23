@@ -513,12 +513,11 @@ elif choice == 'Phân cụm khách hàng':
     st.write('Download file csv đã phân nhóm khách hàng theo RFM')
     #csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
     ##################################################################################################3
-    from io import BytesIO
-
-    output = BytesIO()
-    df_RFM_rule.to_csv(output, index=False, encoding='utf-8')
-    csv = output.getvalue()
-#########################################################################################################
+    # Chuyển các cột kiểu object về string, nếu cần.
+    for col in df_RFM_rule.select_dtypes(include='object'):
+    df_RFM_rule[col] = df_RFM_rule[col].astype(str)
+   
+    #########################################################################################################
     st.download_button(
         label="Download data as CSV",
         data=csv,
