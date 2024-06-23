@@ -511,7 +511,14 @@ elif choice == 'Phân cụm khách hàng':
        'PROMISING', 'LOST', 'NEW'
        ''')
     st.write('Download file csv đã phân nhóm khách hàng theo RFM')
-    csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
+    #csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
+    ##################################################################################################3
+    from io import BytesIO
+
+    output = BytesIO()
+    df_RFM_rule.to_csv(output, index=False, encoding='utf-8')
+    csv = output.getvalue()
+#########################################################################################################
     st.download_button(
         label="Download data as CSV",
         data=csv,
