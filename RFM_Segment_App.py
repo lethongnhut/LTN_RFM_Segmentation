@@ -228,7 +228,7 @@ st.markdown(''' Xây dựng hệ thống phân cụm khách hàng dựa trên d�
             Hệ thống này sẽ giúp cửa hàng xác định các nhóm khách hàng khác nhau, 
             từ đó phát triển các chiến lược kinh doanh và dịch vụ chăm sóc khách hàng phù hợp với từng nhóm đối tượng
             ''')
-st.image('../IMG/1.jpg')
+st.image('./IMG/1.jpg')
 
 #----------------------------------------------------------------------------------------------------
 # Side bar
@@ -284,9 +284,9 @@ if update_data == 'Update data mới':
        
       
 else:
-    products, transactions = load_data('../DATA/Products_with_Prices.csv', '../DATA/Transactions.csv')
-    df_RFM_rule = pd.read_csv('../DATA/RFM_rule_segments.csv')
-    df = pd.read_csv('../DATA/full_trans.csv')
+    products, transactions = load_data('./DATA/Products_with_Prices.csv', './DATA/Transactions.csv')
+    df_RFM_rule = pd.read_csv('./DATA/RFM_rule_segments.csv')
+    df = pd.read_csv('./DATA/full_trans.csv')
     df_RFM = df_RFM_rule[['Recency', 'Frequency', 'Monetary']]
     quantiles = {'Recency': {0.25: 58.0, 0.5: 142.0, 0.75: 275.0},
                  'Frequency': {0.25: 6.0, 0.5: 8.0, 0.75: 11.0},
@@ -376,8 +376,8 @@ elif choice == 'Xây dựng mô hình':
     
     st.markdown('Tạo bảng RFM analysis cho mỗi khách hàng')
     st.table(df_RFM_rule[['Recency', 'Frequency', 'Monetary']].sample(5))
-    st.image('../IMG/RFM_Distribution.png')
-    st.image('../IMG/RFM_Correlation.png')
+    st.image('./IMG/RFM_Distribution.png')
+    st.image('./IMG/RFM_Correlation.png')
     tab1, tab2, tab3, tab4 = st.tabs(["RFM Level Function",
                                       "K-means Clustering sklearn", 
                                       "Hierarchical Clustering",
@@ -403,10 +403,10 @@ elif choice == 'Xây dựng mô hình':
 11. REGULAR: Tất cả các trường hợp khác được coi là khách hàng thường xuyên.
 Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của mình và phân loại họ dựa trên các hành vi mua sắm gần đây để áp dụng các chiến lược marketing phù hợp.
                     ''')
-        st.image("../IMG/RFM rule Segments11.png")
-        st.image("../IMG/Histograms_Segmented_by_RFM_rule_RFM_level.png")
-        st.image("../IMG/RFM Rule scatter 2d11.png")
-        st.image("../IMG/RFM Rule scatter 3d11.png")
+        st.image("./IMG/RFM rule Segments11.png")
+        st.image("./IMG/Histograms_Segmented_by_RFM_rule_RFM_level.png")
+        st.image("./IMG/RFM Rule scatter 2d11.png")
+        st.image("./IMG/RFM Rule scatter 3d11.png")
 #----------------------------------------------------------------------------------------------------
     with tab2:
         st.subheader("K-means Clustering sklearn", divider='rainbow')
@@ -415,7 +415,7 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
                     - Tìm kiếm k bằng Elbow Method
                                       
                     ''')
-        st.image('../IMG/The Elbow Method sklearn.png')
+        st.image('./IMG/The Elbow Method sklearn.png')
         st.markdown('''- Build model with k=5
                     
 | Cluster | RecencyMean | FrequencyMean | MonetaryMean | Count | Percent |
@@ -427,10 +427,10 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
 | 4       | 102.0       | 15.0          | 155.0        | 687   | 18.48   |
 
                     ''')
-        st.image("../IMG/kmean_sklearn Unsupervised Segments.png")
-        st.image("../IMG/Histograms Segmented by sklearn kmean.png")
-        st.image("../IMG/RFM kmean sklearn scatter 2d.png")
-        st.image("../IMG/RFM kmean sklearn scatter 3d.png")        
+        st.image("./IMG/kmean_sklearn Unsupervised Segments.png")
+        st.image("./IMG/Histograms Segmented by sklearn kmean.png")
+        st.image("./IMG/RFM kmean sklearn scatter 2d.png")
+        st.image("./IMG/RFM kmean sklearn scatter 3d.png")        
 #----------------------------------------------------------------------------------------------------
     with tab3:
         st.subheader("Hierarchical Clustering", divider='rainbow')
@@ -439,7 +439,7 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
                     - Tìm kiếm k bằng Vẽ dendrogram 
                                       
                     ''')
-        st.image('../IMG/Dendrogram for Hierarchical Clustering.png')
+        st.image('./IMG/Dendrogram for Hierarchical Clustering.png')
         st.markdown('''- Build model AgglomerativeClustering with k=5
                     
 | Cluster | RecencyMean | FrequencyMean | MonetaryMean | Count | Percent |
@@ -453,10 +453,10 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
 
                     ''')
         
-        st.image("../IMG/RFM Hierarchical Cluster Unsupervised Segments.png")
-        st.image("../IMG/Histograms Segmented by RFM + Hierarchical Clustering.png")
-        st.image("../IMG/RFM Hierarchical Clustering scatter 2d.png")
-        st.image("../IMG/RFM Hierarchical Clustering scatter 3d.png")
+        st.image("./IMG/RFM Hierarchical Cluster Unsupervised Segments.png")
+        st.image("./IMG/Histograms Segmented by RFM + Hierarchical Clustering.png")
+        st.image("./IMG/RFM Hierarchical Clustering scatter 2d.png")
+        st.image("./IMG/RFM Hierarchical Clustering scatter 3d.png")
 #----------------------------------------------------------------------------------------------------
     with tab4:
         st.subheader("K-means Clustering-pySpark", divider='rainbow')
@@ -465,8 +465,8 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
                     - Tìm kiếm k bằng Elbow Method và tính Silhouette score
                                       
                     ''')
-        st.image('../IMG/spark_kmean_wssse.png')
-        st.image('../IMG/spark_kmean_silhouette.png')
+        st.image('./IMG/spark_kmean_wssse.png')
+        st.image('./IMG/spark_kmean_silhouette.png')
         st.markdown('''- Build model with k=5
                     
 | Cluster | RecencyMean | FrequencyMean | MonetaryMean | Count | Percent |
@@ -480,10 +480,10 @@ Hàm này giúp doanh nghiệp hiểu rõ hơn về cơ sở khách hàng của 
 
                     ''')
         
-        st.image("../IMG/Spark kmean Unsupervised Segments.png")
-        st.image("../IMG/Histograms Segmented by RFM + KMeans(pySpark).png")
-        st.image("../IMG/RFM kmean pySpark scatter 2d.png")
-        st.image("../IMG/RFM kmean pySpark scatter 3d.png")
+        st.image("./IMG/Spark kmean Unsupervised Segments.png")
+        st.image("./IMG/Histograms Segmented by RFM + KMeans(pySpark).png")
+        st.image("./IMG/RFM kmean pySpark scatter 2d.png")
+        st.image("./IMG/RFM kmean pySpark scatter 3d.png")
 #----------------------------------------------------------------------------------------------------
 elif choice == 'Phân cụm khách hàng':
 #----------------------------------------------------------------------------------------------------
