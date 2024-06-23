@@ -734,7 +734,8 @@ elif choice == 'Tra phân cụm khách hàng':
                 monetary = st.number_input("Monetary", min_value=1.0, max_value=500.0, value=100.0, key=f"monetary_{i}")
     
                 # Thêm thông tin khách hàng vừa nhập vào dataframe
-            df_customer = df_customer.append({"Recency": recency, "Frequency": frequency, "Monetary": monetary}, ignore_index=True)
+            #df_customer = df_customer.append({"Recency": recency, "Frequency": frequency, "Monetary": monetary}, ignore_index=True)
+            df_customer.loc[len(df_customer)] = [recency, frequency, monetary]
             # Thực hiện phân cụm khách hàng dựa trên giá trị của 3 cột này
                     # In kết quả ra màn hình
             st.write("Dữ liệu đã nhập:")
