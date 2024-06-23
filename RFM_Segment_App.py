@@ -512,9 +512,6 @@ elif choice == 'Phân cụm khách hàng':
        ''')
     st.write('Download file csv đã phân nhóm khách hàng theo RFM')
     csv = df_RFM_rule.to_csv(index=False).encode('utf-8')
-###############################################################################
-
-############################################################################
     st.download_button(
         label="Download data as CSV",
         data=csv,
