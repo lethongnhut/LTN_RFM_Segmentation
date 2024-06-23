@@ -218,7 +218,7 @@ Member_number,Date,productId,items
 # Tiêu đề
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
-    st.image('../IMG/download.jpg')
+    st.image('./IMG/download.jpg')
 
 st.markdown("<h3 style='text-align: center; color: grey;'>Trung tâm tin học - ĐH KHTN</h3>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: grey;'>Data Science</h3>", unsafe_allow_html=True)
