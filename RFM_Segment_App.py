@@ -515,7 +515,7 @@ elif choice == 'Phân cụm khách hàng':
     ##################################################################################################3
     # Chuyển các cột kiểu object về string, nếu cần.
     for col in df_RFM_rule.select_dtypes(include='object'):
-    df_RFM_rule[col] = df_RFM_rule[col].astype(str)
+        df_RFM_rule[col] = df_RFM_rule[col].astype(str)
    
     #########################################################################################################
     st.download_button(
